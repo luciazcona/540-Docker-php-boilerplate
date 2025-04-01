@@ -14,7 +14,7 @@ class ListaDeLaCompraTest extends TestCase
     {
         $listaDeLaCompra = new ListaDeLaCompra();
 
-        $result = $listaDeLaCompra->process("pan");
+        $result = $listaDeLaCompra->process("Pan");
 
         $this->assertEquals("pan", $result);
 
