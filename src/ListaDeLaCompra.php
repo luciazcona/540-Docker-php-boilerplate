@@ -9,6 +9,14 @@ class ListaDeLaCompra
     {
         $lista = strtolower($producto);
 
-        return $lista;
+        $intruccion = explode(" ", $lista);
+
+        if(count($intruccion) === 2){
+            $intruccionFinal = $intruccion[1] . " x1";
+
+            return $intruccionFinal;
+        }
+
+        return implode($intruccion);
     }
 }
