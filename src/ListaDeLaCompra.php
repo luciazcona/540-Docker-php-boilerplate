@@ -12,7 +12,10 @@ class ListaDeLaCompra
         if(count($intruccion) === 2) {
             return $intruccion[1] . " x1";
         }
+        if(count($intruccion) === 3) {
+            return $intruccion[1] . " x". $intruccion[2];
+        }
 
-        return implode($intruccion);
+        return strtolower($producto);
     }
 }

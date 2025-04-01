@@ -32,4 +32,17 @@ class ListaDeLaCompraTest extends TestCase
         $this->assertEquals("pan x1", $result);
     }
 
+    /**
+     * @test
+     **/
+    public function givenProductWithQuantityReturnsQuantity(): void
+    {
+        $listaDeLaCompra = new ListaDeLaCompra();
+
+        $result = $listaDeLaCompra->process("añadir Pan 2");
+
+        $this->assertEquals("pan x2", $result);
+    }
+
+
 }
