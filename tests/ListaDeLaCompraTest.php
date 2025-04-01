@@ -7,14 +7,21 @@ use PHPUnit\Framework\TestCase;
 
 class ListaDeLaCompraTest extends TestCase
 {
+    private ListaDeLaCompra $listaDeLaCompra;
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->listaDeLaCompra = new ListaDeLaCompra();
+    }
+
+
     /**
      * @test
      **/
     public function givenAWordInUppercaseReturnTheSameWordInLowercase(): void
     {
-        $listaDeLaCompra = new ListaDeLaCompra();
-
-        $result = $listaDeLaCompra->process("Pan");
+        $result = $this->listaDeLaCompra->process("Pan");
 
         $this->assertEquals("pan", $result);
 
@@ -25,9 +32,7 @@ class ListaDeLaCompraTest extends TestCase
      **/
     public function givenProductWithoutQuantityReturnsOne(): void
     {
-        $listaDeLaCompra = new ListaDeLaCompra();
-
-        $result = $listaDeLaCompra->process("añadir Pan");
+        $result = $this->listaDeLaCompra->process("añadir Pan");
 
         $this->assertEquals("pan x1", $result);
     }
@@ -37,9 +42,7 @@ class ListaDeLaCompraTest extends TestCase
      **/
     public function givenProductWithQuantityReturnsQuantity(): void
     {
-        $listaDeLaCompra = new ListaDeLaCompra();
-
-        $result = $listaDeLaCompra->process("añadir Pan 2");
+        $result = $this->listaDeLaCompra->process("añadir Pan 2");
 
         $this->assertEquals("pan x2", $result);
     }
