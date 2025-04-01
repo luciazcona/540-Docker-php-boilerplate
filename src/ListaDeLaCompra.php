@@ -22,7 +22,7 @@ class ListaDeLaCompra
             return $intruccion;
         }
 
-        array_push($lista, $intruccion);
+        $lista[] = $intruccion;
 
         return implode(", ", $lista);
     }
