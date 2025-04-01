@@ -32,5 +32,4 @@ class ListaDeLaCompraTest extends TestCase
         $this->assertEquals("pan x1", $result);
     }
 
-
 }
