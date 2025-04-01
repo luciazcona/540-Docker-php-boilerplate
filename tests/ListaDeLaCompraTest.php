@@ -55,5 +55,15 @@ class ListaDeLaCompraTest extends TestCase
         $this->assertEquals("leche x3", $result);
     }
 
+    /**
+     * @test
+     **/
+    public function givenAProductToDeleteThatIsNotOnTheListReturnsException(): void
+    {
+        $result = $this->listaDeLaCompra->process("eliminar Leche");
+
+        $this->assertEquals("El producto seleccionado no existe", $result);
+    }
+
 
 }

@@ -13,17 +13,15 @@ class ListaDeLaCompra
         $intruccion = explode(" ", strtolower($producto));
 
         if(count($intruccion) === 2) {
-            $intruccion = $intruccion[1] . " x1";
-            return $intruccion;
+            $lista[] = $intruccion[1] . " x1";
         }
 
         if(count($intruccion) === 3) {
-            $intruccion = $intruccion[1] . " x". $intruccion[2];
-            return $intruccion;
+            $lista[] = $intruccion[1] . " x". $intruccion[2];
         }
 
-        $lista[] = $intruccion;
+        $listaDeLaCompra = implode(", ", $lista);
 
-        return implode(", ", $lista);
+        return $listaDeLaCompra;
     }
 }
