@@ -2,24 +2,24 @@
 main: build-image build-container
 
 build-image:
-	docker build -t docker-php-boilerplate .
+	docker build -t examen .
 
 build-container:
-	docker run -dt --name docker-php-boilerplate -v .:/540/Boilerplate docker-php-boilerplate
-	docker exec docker-php-boilerplate composer install
+	docker run -dt --name examen -v .:/540/Boilerplate examen
+	docker exec examen composer install
 
 start:
-	docker start docker-php-boilerplate
+	docker start examen
 
 test: start
-	docker exec docker-php-boilerplate ./vendor/bin/phpunit tests/$(target)
+	docker exec examen ./vendor/bin/phpunit tests/$(target)
 
 shell: start
-	docker exec -it docker-php-boilerplate /bin/bash
+	docker exec -it examen /bin/bash
 
 stop:
-	docker stop docker-php-boilerplate
+	docker stop examen
 
 clean: stop
-	docker rm docker-php-boilerplate
+	docker rm examen
 	rm -rf vendor
