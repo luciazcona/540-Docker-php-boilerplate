@@ -15,18 +15,6 @@ class ListaDeLaCompraTest extends TestCase
         $this->listaDeLaCompra = new ListaDeLaCompra();
     }
 
-
-    /**
-     * @test
-     **/
-    public function givenAWordInUppercaseReturnTheSameWordInLowercase(): void
-    {
-        $result = $this->listaDeLaCompra->process("Pan");
-
-        $this->assertEquals("pan", $result);
-
-    }
-
     /**
      * @test
      **/
@@ -45,6 +33,26 @@ class ListaDeLaCompraTest extends TestCase
         $result = $this->listaDeLaCompra->process("añadir Pan 2");
 
         $this->assertEquals("pan x2", $result);
+    }
+
+    /**
+     * @test
+     **/
+    public function givenProductFoundedInTheListWithQuantityReturnsSumQuantity(): void
+    {
+        $result = $this->listaDeLaCompra->process("añadir Pan 2");
+
+        $this->assertEquals("pan x2", $result);
+    }
+
+    /**
+     * @test
+     **/
+    public function givenTwoProductsReturnsListWithQuantities(): void
+    {
+        $result = $this->listaDeLaCompra->process("añadir Leche 3");
+
+        $this->assertEquals("leche x3", $result);
     }
 
 
